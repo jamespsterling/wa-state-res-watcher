@@ -17,7 +17,7 @@ var options = {
 };
 
 module.exports = {
-  // https://nightwatchjs.org/api/commands/#timeouts
+  // 
   waitForConditionTimeout: 1000,
   reporter: (require('nightwatch-slack-failure-reporter')(options))
 };

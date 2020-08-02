@@ -6,16 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "e2e": "node_modules/.bin/nightwatch --config nightwatch.conf.js",
-    "slack": "node_modules/.bin/nightwatch --headless --config nightwatch.conf.js --reporter ./node_modules/nightwatch-slack-failure-reporter/lib/reporter.js"
+    "slack": "node_modules/.bin/nightwatch --config nightwatch.conf.js --reporter ./reporters/slack.js"
   },
   "author": "James Sterling",
   "license": "MIT",
   "dependencies": {
     "chromedriver": "^84.0.1",
     "nightwatch": "^1.3.7",
+    "nightwatch-slack-failure-reporter": "0.0.1",
     "selenium-server": "^3.141.59"
   },
-  "devDependencies": {
-    "nightwatch-slack-failure-reporter": "0.0.1"
-  }
+  "devDependencies": {}
 }
