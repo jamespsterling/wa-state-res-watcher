@@ -1,0 +1,7 @@
+version: "3.3"
+services:
+  wa-state-container:
+    build: '.'
+    container_name: site-watcher
+    ports:
+      - "9515"
