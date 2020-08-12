@@ -14,6 +14,7 @@ const partySize = 2;
 /**
  * Triggered from a message on a Cloud Pub/Sub topic.
  *
+ * 
  * @param {!Object} event Event payload.
  * @param {!Object} context Metadata for the event.
  */
@@ -69,7 +70,9 @@ exports.checkSites = (event, context) => {
   ];
 
   const formData = {
-    mapId: -2147483375,
+    mapId: -2147483375, // Lake Wenatchee
+    // mapId: -2147483346, // Northwest region
+    // mapId: -2147483419, // Saltwater
     cartUid: null,
     bookingUid: null,
     cartTransactionUid: null,
@@ -164,8 +167,8 @@ exports.checkSites = (event, context) => {
         const webhook = new IncomingWebhook(slackUrl);
 
         webhook.send({
-          text: `Campsite ${d.mapLinkLocalizedValues[avail][0].title} (${d.mapLinkLocalizedValues[avail][0].description}) ` +
-                `available for ${formData.startDate.substr(0, 10)} at ${mapInfo.title} ${refererUrl}`,
+          text: `Campsite <${refererUrl}|${d.mapLinkLocalizedValues[avail][0].title}> (${d.mapLinkLocalizedValues[avail][0].description}) ` +
+                `available on ${formData.startDate.substr(0, 10)} at ${mapInfo.title}`,
         });
 
       }
@@ -173,4 +176,4 @@ exports.checkSites = (event, context) => {
   });
 };
 
-this.checkSites();
+// this.checkSites();
